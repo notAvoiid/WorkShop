@@ -1,4 +1,4 @@
-package com.mrzoom.startproject;
+package com.mrzoom.startproject.config;
 
 import com.mrzoom.startproject.entities.User;
 import com.mrzoom.startproject.repositories.UserRepository;
@@ -11,10 +11,10 @@ import java.util.Arrays;
 
 @Configuration
 @Profile("test")
-public class TestConfig implements CommandLineRunner { //
+public class TestConfig implements CommandLineRunner { // Classe auxiliar para fazer configuração
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Override
     public void run(String... args) throws Exception {
