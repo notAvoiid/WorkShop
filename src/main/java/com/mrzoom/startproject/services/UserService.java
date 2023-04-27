@@ -2,6 +2,7 @@ package com.mrzoom.startproject.services;
 
 import com.mrzoom.startproject.entities.User;
 import com.mrzoom.startproject.repositories.UserRepository;
+import com.mrzoom.startproject.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ public class UserService {
     }
     public User findUserByiId(Long id){
         Optional<User> obj = repository.findById(id);
-        return obj.get();
+        return obj.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
     public User insert(User obj){
